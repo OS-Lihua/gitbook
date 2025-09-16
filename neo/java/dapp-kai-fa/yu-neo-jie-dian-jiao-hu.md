@@ -7,7 +7,7 @@
 您可以按以下方式实例化它：
 
 ```java
-Neow3j neow3j = Neow3j.build(new HttpService("http://localhost:40332"));Copy to clipboardErrorCopied
+Neow3j neow3j = Neow3j.build(new HttpService("http://localhost:40332"));
 ```
 
 这假设Neo节点在`http://localhost:40332`监听。用您想要连接的节点地址替换该URL。通过这种方式实例化`Neow3j`对象，它将使用默认设置进行配置。一些`Neow3j`配置设置将基于节点的协议设置，这些设置在实例化`Neow3j`对象期间获取，例如，轮询间隔默认设置为每个区块的毫秒数。如果您想使用自定义值，可以额外传递一个已配置的`Neow3jConfig`对象。例如：
@@ -15,7 +15,7 @@ Neow3j neow3j = Neow3j.build(new HttpService("http://localhost:40332"));Copy to 
 ```java
 long pollingInterval = 30000; // in milliseconds
 Neow3j neow3j = Neow3j.build(new HttpService("http://localhost:40332"),
-                             defaultNeow3jConfig().setPollingInterval(pollingInterval));Copy to clipboardErrorCopied
+                             defaultNeow3jConfig().setPollingInterval(pollingInterval));
 ```
 
 `Neow3jConfig` 类包含 `Neow3j` 特定的配置值/对象，如轮询间隔、使用哪个ScheduledExecutorService，或使用哪个Neo Name Service Resolver合约。
@@ -53,7 +53,7 @@ neow3j.catchUpToLatestAndSubscribeToNewBlocksObservable(new BigInteger("100"), t
             System.out.println("hashId: " + blockReqResult.getBlock().getHash());
             System.out.println("confirmations: " + blockReqResult.getBlock().getConfirmations());
             System.out.println("transactions: " + blockReqResult.getBlock().getTransactions());
-        });Copy to clipboardErrorCopied
+        });
 ```
 
 如果您对历史区块不感兴趣，并且希望从最新区块开始订阅：
@@ -65,7 +65,7 @@ neow3j.subscribeToNewBlocksObservable(true)
             System.out.println("hashId: " + blockReqResult.getBlock().getHash());
             System.out.println("confirmations: " + blockReqResult.getBlock().getConfirmations());
             System.out.println("transactions: " + blockReqResult.getBlock().getTransactions());
-        });Copy to clipboardErrorCopied
+        });
 ```
 
 ### 检查交易
@@ -78,14 +78,14 @@ NeoGetTransaction response = neow3j.getTransaction(txHash).send();
 if (response.hasError()) {
     throw new Exception("Error fetching transaction: " + response.getError().getMessage());
 }
-Transaction tx = response.getTransaction();Copy to clipboardErrorCopied
+Transaction tx = response.getTransaction();
 ```
 
 `Transaction` 对象将包含关于交易的所有信息，如为其支付的费用、它被包含在的区块，或自交易被包含在区块中以来已添加了多少个区块。如果您需要原始字节数组形式的交易，可以使用 `getRawTransaction` 方法代替。此方法将提供表示交易字节的Base64编码字符串。
 
 ```java
 NeoGetRawTransaction response = neow.getRawTransaction(txHash).send();
-String tx = response.getRawTransaction();Copy to clipboardErrorCopied
+String tx = response.getRawTransaction();
 ```
 
 对于大多数交易，dApp对调用输出感兴趣。您可以使用 `getApplicationLog` 方法检索调用的结果。
@@ -107,7 +107,7 @@ List<StackItem> stack = execution.getStack();
 StackItem returnValue = stack.get(0);
 
 // Get the notifications fired by the transaction.
-List<NeoApplicationLog.Execution.Notification> notifications = execution.getNotifications();Copy to clipboardErrorCopied
+List<NeoApplicationLog.Execution.Notification> notifications = execution.getNotifications();
 ```
 
 应用程序日志中包含的堆栈将包含调用返回的所有堆栈项。通常，返回堆栈由位于索引0处的一个返回值组成。了解调用返回的堆栈项类型对于正确解释它很重要。
@@ -130,7 +130,7 @@ if (response.getOpenWallet()) {
     System.out.println("Successfully opened wallet.");
 } else {
     System.out.println("Wallet not opened.");
-}Copy to clipboardErrorCopied
+}
 ```
 
 一旦钱包打开，您可以列出该钱包中的帐户：
@@ -140,7 +140,7 @@ NeoListAddress response = neow3j.listAddress().send();
 if (response.hasError()) {
     throw new Exception("Failed to fetch wallet accounts. Error message: " + response.getError().getMessage());
 }
-List<NeoAddress> listOfAddresses = response.getAddresses();Copy to clipboardErrorCopied
+List<NeoAddress> listOfAddresses = response.getAddresses();
 ```
 
 检查钱包余额：
@@ -150,7 +150,7 @@ NeoGetWalletBalance response = neow3j.getWalletBalance(NeoToken.SCRIPT_HASH).sen
 if (response.hasError()) {
     throw new Exception("Failed to get wallet balance. Error message: " + response.getError().getMessage());
 }
-String balance = response.getWalletBalance().getBalance();Copy to clipboardErrorCopied
+String balance = response.getWalletBalance().getBalance();
 ```
 
 最后，关闭钱包：
@@ -159,7 +159,7 @@ String balance = response.getWalletBalance().getBalance();Copy to clipboardError
 NeoCloseWallet response = neow3j.closeWallet().send();
 if (response.hasError()) {
     throw new Exception("Failed to close the wallet. Error message: " + response.getError().getMessage());
-}Copy to clipboardErrorCopied
+}
 ```
 
 ### Neo-Express
@@ -169,7 +169,7 @@ if (response.hasError()) {
 Neo-express相比普通Neo节点暴露了额外的RPC方法，可通过 `Neow3jExpress` 访问。使用 `Neow3jExpress` 的方式与 `Neow3j` 类似，但使用指向neo-express实例的URL。
 
 ```java
-Neow3jExpress neow3j = Neow3jExpress.build(new HttpService("http://localhost:40332"));Copy to clipboardErrorCopied
+Neow3jExpress neow3j = Neow3jExpress.build(new HttpService("http://localhost:40332"));
 ```
 
 此API对于作为本地Neo网络设置的一部分为neo-express创建工具的开发者特别有用。
