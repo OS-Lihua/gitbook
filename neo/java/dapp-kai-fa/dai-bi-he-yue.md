@@ -5,23 +5,29 @@ Neo上有两个代币标准：一个用于同质化代币，一个用于非同�
 下图说明了与代币合约相关的类的结构。它们是`SmartContract`基类的子类型，并提供特定的代币合约方法。在`Token`子类型中，收集了代币合约中使用的常用方法，如`getDecimals()`、`getSymbol()`或`getTotalSupply()`。`FungibleToken`子类型实现了NEP-17标准。NEP-17合约的两个具体实例是原生合约`NeoToken`和`GasToken`，它们包含特定于它们的额外方法，如`registerValidator`、`getRegisteredValidators`或`vote`。`NonFungibleToken`表示符合NEP-11非同质化代币标准的代币合约的包装器。`NeoNameService`合约是此类合约的一个具体示例。
 
 ```mermaid
-graph TB
-    A[SmartContract] --> B[Token]
-    B --> C[FungibleToken]
-    B --> D[NonFungibleToken]
-    C --> E[NeoToken]
-    C --> F[GasToken]
-    D --> G[NeoNameService]
+---
+config:
+  layout: elk
+---
+graph TD
+  Mermaid --> Diagram
+  A[SmartContract] --> B[Token]   
+  B --> C[FungibleToken]
+  B --> D[NonFungibleToken]
+  C --> E[NeoToken]
+  C --> F[GasToken]
+  D --> G[NeoNameService]
     
-    H[构建调用脚本] --> I[指定交易签名者等] --> J[交易准备签名和发送]
-    C --> K[TransactionBuilder]
-    D --> K
-    K --> L[Transaction]
+  H[构建调用脚本] --> I[指定交易签名者等] --> J[交易准备签名和发送]
+  C --> K[TransactionBuilder]
+  D --> K
+  K --> L[Transaction]
     
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
-    style C fill:#bfb,stroke:#333,stroke-width:2px
-    style D fill:#fbf,stroke:#333,stroke-width:2px
+  style A fill:#f9f,stroke:#333,stroke-width:2px
+  style B fill:#bbf,stroke:#333,stroke-width:2px
+  style C fill:#bfb,stroke:#333,stroke-width:2px
+  style D fill:#fbf,stroke:#333,stroke-width:2px
+
 ```
 
 所有这些类都提供了构建脚本和交易以进行合约调用的方法。更改状态的方法返回一个`TransactionBuilder`，可用于进一步配置交易，如指定签名者或额外的网络费用。然后可以签名和构建交易，并将结果`Transaction`发送到Neo节点。
