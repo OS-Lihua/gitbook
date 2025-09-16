@@ -9,10 +9,10 @@
 * 一种是256位长，通过对特定输入数据两次应用SHA-256算法（SHA-2加密哈希函数的成员）生成。这种类型的哈希用于交易和区块哈希。
 * 另一种类型是160位长，通过先应用SHA-256然后对特定输入数据应用RIPEMD-160生成。这种哈希类型用于以脚本哈希的形式标识账户和合约，这些哈希是与这些账户和合约相关联的脚本的哈希。
 
-Neow3j SDK分别对这两种类型的哈希使用`io.neow3j.contract.Hash256`和`io.neow3j.contract.Hash160`类型。您会发现SDK的API通常要求您使用这些特定类型，而不是简单的字符串或字节数组。值得注意的是，这些类型存储的哈希以大端序存储，但可以使用`toLittleEndianArray()`方法以小端序检索。在检查合约调用结果时，[字节序](https://en.wikipedia.org/wiki/Endianness)可能是一个问题，因为Neo节点可能以小端序返回哈希。在构造`Hash160`或`Hash256`对象时，必须考虑这种字节序的差异。
+Neow3j SDK分别对这两种类型的哈希使用 `io.neow3j.contract.Hash256` 和 `io.neow3j.contract.Hash160` 类型。您会发现SDK的API通常要求您使用这些特定类型，而不是简单的字符串或字节数组。值得注意的是，这些类型存储的哈希以大端序存储，但可以使用 `toLittleEndianArray()` 方法以小端序检索。在检查合约调用结果时，[字节序](https://en.wikipedia.org/wiki/Endianness)可能是一个问题，因为Neo节点可能以小端序返回哈希。在构造 `Hash160` 或 `Hash256` 对象时，必须考虑这种字节序的差异。
 
 ### [NeoVM栈项](https://neow3j.io/#/neo-n3/dapp_development/preliminaries?id=neovm-stack-items)
 
 NeoVM是负责在Neo区块链上执行所有智能合约代码的虚拟机。当在Neo区块链上调用合约时，该调用的结果是在调用结束时保留在NeoVM栈上的项目列表。这些项目被称为栈项，在Neow3j SDK中由`StackItem`类表示。栈项可以属于NeoVM内存在的几种预定义类型，当SDK从Neo节点接收到它们时，需要映射到Java类型。这种映射不是简单的一对一翻译，而是允许解释的空间。例如，如果整数栈项在0和1的范围内，则可以将其解释为布尔值。同样，字节数组可以解释为整数值。
 
-Neow3j中的`StackItem`类允许您指定要将栈项转换成的Java类型。Neo节点返回的任何栈项都将封装在`StackItem`类中。如果您期望从调用中获得布尔值，即使底层栈项是值为0或1的整数，您也可以使用`stackItem.getBoolean()`来检索`true`或`false`。但是，如果栈项无法转换为所需类型，将抛出异常。例如，在整数栈项上调用`stackItem.getMap()`不会将整数解释为映射；相反，它将抛出异常。因此，提前知道调用将返回什么类型的栈项对于在代码中适当处理它很重要。
+Neow3j中的 `StackItem` 类允许您指定要将栈项转换成的Java类型。Neo节点返回的任何栈项都将封装在 `StackItem` 类中。如果您期望从调用中获得布尔值，即使底层栈项是值为0或1的整数，您也可以使用 `stackItem.getBoolean()` 来检索 `true` 或 `false` 。但是，如果栈项无法转换为所需类型，将抛出异常。例如，在整数栈项上调用 `stackItem.getMap()` 不会将整数解释为映射；相反，它将抛出异常。因此，提前知道调用将返回什么类型的栈项对于在代码中适当处理它很重要。

@@ -6,7 +6,7 @@ Neow3j SDK旨在提供一个高级抽象层，让开发者无需处理Neo区块�
 
 例如，您可以使用 `NeoToekn` 类通过一个方法调用轻松创建一个NEO转账，或者使用 `TransactionBuilder` 从头开始构建交易。
 
-Neow3j SDK分为两个模块：`io.neow3j:core` 和 `io.neow3j:contract`。这些模块将较低级别的核心功能（如签名）与更抽象的功能（如构建特定合约交易）分离。`core` 模块是 `contract` 模块的依赖。因此，如果您将 `contract` 作为依赖添加到项目中，也会自动包含`core` 模块。
+Neow3j SDK分为两个模块：`io.neow3j:core` 和 `io.neow3j:contract`。这些模块将较低级别的核心功能（如签名）与更抽象的功能（如构建特定合约交易）分离。`core` 模块是 `contract` 模块的依赖。因此，如果您将 `contract` 作为依赖添加到项目中，也会自动包含 `core` 模块。
 
 **`io.neow3j:core`** 包含：
 
