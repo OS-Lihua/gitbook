@@ -6,7 +6,12 @@
 
 * [Compound](compound/compound.md)
 
+## 🎾 Neo
+
+* [Java](neo/java.md)
+* [C#](neo/c.md)
+
 ## AI
 
-* [Untitled](ai/untitled.md)
-* [Page](ai/page.md)
+* [chain](ai/chain.md)
+* [graph](ai/graph.md)
