@@ -16,7 +16,7 @@
 
 与返回类型相反，合约的每个方法都以特定的参数类型作为输入。要了解智能合约中存在哪些方法以及它需要哪些参数类型，每个合约都有一个清单，为您提供这些以及关于合约的更多信息。在以下部分中，我们将向您展示如何创建合约参数、获取清单，并确定您需要传递给要调用的函数的参数。
 
-### [合约参数](https://neow3j.io/#/neo-n3/dapp_development/smart_contracts?id=contract-parameters)
+### 合约参数
 
 当调用智能合约时，您将需要参数。neow3j SDK通过`ContractParameter`类表示参数。它提供了许多静态构造方法，涵盖所有可能的参数类型。如果您使用这些方法，neow3j将确保参数以正确的编码和正确的类型声明发送到合约。例如，如果您需要将NEO地址的脚本哈希作为参数传递，可以使用`ContractParameter.hash160(...)`方法。它将脚本哈希转换为预期的字节数组。
 
@@ -46,7 +46,7 @@ ContractParameter.array(
 
 当对象用于返回类型时，也适用相同的概念。换句话说，期望一个`Array`类型的返回值，该值按照对象变量在类中出现的顺序保存对象的变量。
 
-### [合约调用](https://neow3j.io/#/neo-n3/dapp_development/smart_contracts?id=contract-invocation)
+### 合约调用
 
 首先，指定您要调用的合约和函数。使用`io.neow3j.contract.Hash160`类表示合约的脚本哈希，并与`Neow3j`实例一起创建`SmartContract`。
 
@@ -105,7 +105,7 @@ NeoSendRawTransaction response = new SmartContract(contract, neow3j)
         .send();Copy to clipboardErrorCopied
 ```
 
-### [测试调用](https://neow3j.io/#/neo-n3/dapp_development/smart_contracts?id=testing-the-invocation)
+### 测试调用
 
 如果您需要在实际通过网络传播之前了解调用的效果，可以先进行测试调用。这也会调用RPC节点，但只模拟执行而不对区块链产生任何影响。继续上面域名合约的示例，测试调用将如下所示。请注意，根据您执行的调用，即使没有更改区块链状态，您也需要添加签名者。在这个具体的示例中，需要签名者是因为被调用的合约将验证注册的账户是否也是交易的发送者。
 
@@ -126,11 +126,11 @@ NeoInvokeFunction response = new SmartContract(scriptHash, neow3j)
 
 `NeoInvokeFunction`包含有关合约执行中消耗的GAS数量、VM退出状态（例如HALT或FAULT）和VM的堆栈（即返回值）的信息。
 
-### [合约接口](https://neow3j.io/#/neo-n3/dapp_development/smart_contracts?id=contract-interfaces)
+### &#x20;
 
 有几个`SmartContract`的子类实现了一种与Neo原生合约和遵循代币标准的合约的接口类型。在这里，“接口”一词意味着这些类提供了与已部署合约交互的方式。代币合约，包括同质化和非同质化代币（如`NeoToken`和`GasToken`），在[代币合约](https://neow3j.io/#/neo-n3/dapp_development/token_contracts)部分单独讨论。下面讨论其他可用的合约类。
 
-#### [合约管理](https://neow3j.io/#/neo-n3/dapp_development/smart_contracts?id=contractmanagement)
+#### 合约管理
 
 `ContractManagement`合约是一个Neo原生合约，正如其名称所示，可用于管理其他合约。更具体地说，它允许您部署、更新和删除合约。在neow3j SDK中，更新和删除方法无法使用，因为它们只能从另一个合约内部调用。然而，部署方法可用，允许您使用neow3j部署新合约。例如：
 
@@ -145,19 +145,19 @@ Transaction tx = new ContractManagement(neow3j)
 
 `ContractManagement`上还有两个其他方法。它们与最小部署费用有关。任何人都可以使用getter `getMinimumDeploymentFee()`。然而，setter `setMinimumDeploymentFee(...)`只有在交易由委员会成员签名时才能成功使用，这意味着对大多数开发者来说它没有用处。
 
-#### [策略合约](https://neow3j.io/#/neo-n3/dapp_development/smart_contracts?id=policycontract)
+#### 策略合约
 
 `PolicyContract`保存有关Neo网络的几个设置的信息。您可以检索信息，如每交易字节的GAS费用、合约存储每字节的GAS价格，或某个账户是否被列入黑名单。
 
 该合约也为所有这些值提供了setter，尽管它们只有在交易由委员会成员签名时才能成功使用。
 
-#### [角色管理](https://neow3j.io/#/neo-n3/dapp_development/smart_contracts?id=rolemanagement)
+#### 角色管理
 
 `RoleManagement`合约用于为网络中的节点分配角色。节点可以是状态验证器、预言机节点或NeoFS“Alphabet”节点（负责NeoFS侧链上的共识）。
 
 节点对角色的指定只能通过Neo委员会完成。然而，您可以使用`getDesignatedRole(...)`方法检查角色分配。
 
-#### [Neo名称服务](https://neow3j.io/#/neo-n3/dapp_development/smart_contracts?id=neonameservice)
+#### Neo名称服务
 
 `NeoNameService`不是原生合约，而是由Neo核心团队管理的。此合约的脚本哈希与neow3j未知，必须在构造`NeoNameService`实例时由开发者提供。正如其名称所示，名称服务合约提供了将名称映射到所有者账户的可能性。您可以在官方[Neo文档](https://docs.neo.org/docs/n3/Advances/neons/index.html)中阅读更多相关信息。
 

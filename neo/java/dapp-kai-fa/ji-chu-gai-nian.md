@@ -2,7 +2,7 @@
 
 以下部分介绍您在Neow3j SDK中会遇到的一般概念和类型。
 
-### [哈希](https://neow3j.io/#/neo-n3/dapp_development/preliminaries?id=hashes)
+### 哈西
 
 哈希在区块链世界中经常使用，Neo也不例外。Neo中有两种类型的哈希：
 
@@ -11,7 +11,7 @@
 
 Neow3j SDK分别对这两种类型的哈希使用 `io.neow3j.contract.Hash256` 和 `io.neow3j.contract.Hash160` 类型。您会发现SDK的API通常要求您使用这些特定类型，而不是简单的字符串或字节数组。值得注意的是，这些类型存储的哈希以大端序存储，但可以使用 `toLittleEndianArray()` 方法以小端序检索。在检查合约调用结果时，[字节序](https://en.wikipedia.org/wiki/Endianness)可能是一个问题，因为Neo节点可能以小端序返回哈希。在构造 `Hash160` 或 `Hash256` 对象时，必须考虑这种字节序的差异。
 
-### [NeoVM栈项](https://neow3j.io/#/neo-n3/dapp_development/preliminaries?id=neovm-stack-items)
+### NeoVM栈项
 
 NeoVM是负责在Neo区块链上执行所有智能合约代码的虚拟机。当在Neo区块链上调用合约时，该调用的结果是在调用结束时保留在NeoVM栈上的项目列表。这些项目被称为栈项，在Neow3j SDK中由`StackItem`类表示。栈项可以属于NeoVM内存在的几种预定义类型，当SDK从Neo节点接收到它们时，需要映射到Java类型。这种映射不是简单的一对一翻译，而是允许解释的空间。例如，如果整数栈项在0和1的范围内，则可以将其解释为布尔值。同样，字节数组可以解释为整数值。
 

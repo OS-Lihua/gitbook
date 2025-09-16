@@ -26,7 +26,7 @@ graph TB
 
 所有这些类都提供了构建脚本和交易以进行合约调用的方法。更改状态的方法返回一个`TransactionBuilder`，可用于进一步配置交易，如指定签名者或额外的网络费用。然后可以签名和构建交易，并将结果`Transaction`发送到Neo节点。
 
-### [同质化代币合约 (NEP-17)](https://neow3j.io/#/neo-n3/dapp_development/token_contracts?id=fungible-token-contracts-nep-17)
+### <mark style="color:$primary;">同质化代币合约 (NEP-17)</mark>
 
 [NEP-17](https://github.com/neo-project/proposals/blob/master/nep-17.mediawiki)代币合约上最突出的方法是`transfer`方法。此方法有几个重载。在其基本形式中，`transfer`以`Account`作为发送者。该账户作为签名者添加到交易构建器中，具有`calledByEntry`的见证范围。如果账户包含私钥，您可以使用`sign()`自动签名结果交易。
 
@@ -58,7 +58,7 @@ NeoSendRawTransaction response = new NeoToken(neow3j)
 
 在`transfer`方法的两种变体中，都有另一个重载，允许您传递合约参数。如果接收者是智能合约并已实现该方法，则该参数会转发到`onNep17Payment`方法。如果您要传递多个参数，需要在`ContractParameter.array(...)`内部进行。
 
-### [非同质化代币合约 (NEP-11)](https://neow3j.io/#/neo-n3/dapp_development/token_contracts?id=non-fungible-token-contracts-nep-11)
+### <mark style="color:$primary;">非同质化代币合约 (NEP-11)</mark>
 
 包装器类`NonFungibleToken`提供对[NEP-11](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki)标准的支持。有关Neo区块链上非同质化代币的详细信息，请参阅该标准。
 

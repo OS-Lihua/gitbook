@@ -4,7 +4,7 @@
 
 neow3j SDK在其`io.neow3j.transaction.Transaction`类中表示Neo交易。它提供了所有必要的功能来序列化为字节数组并将交易发送到Neo节点。然而，手动构建有效交易将是一项繁琐的任务。因此，neow3j提供了`io.neow3j.contract.TransactionBuilder`，它简化了构建有效交易的过程，并尽早地识别错误配置。
 
-### [构建交易](https://neow3j.io/#/neo-n3/dapp_development/transactions?id=building-transactions)
+### 构建交易
 
 `TransactionBuilder`  和 `Transaction`需要与Neo节点的连接来获取信息（如费用）或发送交易。因此，`TransactionBuilder`使用`Neow3j`对象实例化。一旦构建，构建器允许您设置Neo交易可以具有的几乎所有属性。系统费用（您的交易将消耗的GAS数量）和网络费用（基于您的交易大小和验证所需的努力）都在构建交易时自动获取。
 
@@ -66,7 +66,7 @@ Transaction tx = builder.sign()
 
 要手动向交易添加见证，请继续阅读下一节。
 
-### [签名交易](https://neow3j.io/#/neo-n3/dapp_development/transactions?id=signing-transactions)
+### 签名交易
 
 如[构建交易](https://neow3j.io/#/neo-n3/dapp_development/transactions?id=%2fneo-n3%2fdapp_development%2ftransactions%3fid)部分所示，`TransactionBuilder`提供了一个`sign()`方法，根据提供的签名者添加正确的签名。如果您使用带有私钥的`AccountSigner`，`sign()`方法将自动生成所需的签名/见证。然而，如果账户没有密钥（例如，对于多重签名账户），您需要手动提供见证。
 
@@ -124,7 +124,7 @@ NeoSendRawTransaction response = tx.send();Copy to clipboardErrorCopied
 
 如果您需要手动签名交易并需要合约签名者的见证，请使用`Witness.createContractWitness(List<ContractParameter> verifyParams)`为合约签名者创建见证，并使用`addWitness(Witness witness)`将其添加到交易中。
 
-### [跟踪交易](https://neow3j.io/#/neo-n3/dapp_development/transactions?id=tracking-transactions)
+### 跟踪交易
 
 要跟踪已发出的交易，请在交易实例上使用`track()`方法。然后，您可以使用`getApplicationLog()`在交易被包含在区块中后立即检索应用程序日志：
 
@@ -138,7 +138,7 @@ tx.track().subscribe(blockIndex -> {
 
 如果您在交易被包含在区块中之前调用`getApplicationLog()`，它将抛出`RpcResponseErrorException`，表示交易未知或找不到。
 
-### [添加额外网络费用](https://neow3j.io/#/neo-n3/dapp_development/transactions?id=adding-additional-network-fees)
+### 添加额外网络费用
 
 交易涉及两种类型的费用：系统费用和网络费用。系统费用涵盖在NeoVM上执行脚本所消耗的资源，而网络费用基于交易大小和签名验证所需的努力。您可以使用`additionalNetworkFee()`添加额外的网络费用以获得优先级：
 

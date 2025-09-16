@@ -6,7 +6,7 @@
 
 钱包是一个或多个账户的集合。
 
-### [钱包](https://neow3j.io/#/neo-n3/dapp_development/wallets_and_accounts?id=wallets)
+### 钱包
 
 创建新钱包的最简单方法是使用静态创建方法之一。
 
@@ -16,7 +16,7 @@ Wallet w = Wallet.create();Copy to clipboardErrorCopied
 
 这会创建一个带有新账户（带有新密钥对）的钱包。此方法还有其他版本，允许您立即加密新私钥或在创建后直接将钱包写入文件。
 
-[NEP-6](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki)是Neo的钱包标准。如果您有从其他钱包软件导出的NEP-6钱包文件，可以使用`fromNEP6Wallet(...)`从 NEP-6文件中读取钱包信息。
+[NEP-6](https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki)是Neo的钱包标准。如果您有从其他钱包软件导出的NEP-6钱包文件，可以使用`fromNEP6Wallet(...)` 从 NEP-6文件中读取钱包信息。
 
 ```java
 String absoluteFileName = "/path/to/your/NEP6.wallet";
@@ -26,7 +26,7 @@ Wallet w = Wallet.fromNEP6Wallet(absoluteFileName)
 
 > **注意：** 从 NEP-6钱包文件读取钱包时，包含的账户的私钥将被加密，直到您在钱包上调用`decryptAllAccounts(String password)`。加密的账户无法用于签名交易。
 
-如果您已经有`Account`对象，可以使用静态方法`withAccounts(...)`创建钱包。此外，您可以手动设置钱包的名称、版本和[scrypt](https://en.wikipedia.org/wiki/Scrypt)参数。如果什么都不设置，将使用默认值。
+如果您已经有 `Account` 对象，可以使用静态方法 `withAccounts(...)` 创建钱包。此外，您可以手动设置钱包的名称、版本和[scrypt](https://en.wikipedia.org/wiki/Scrypt)参数。如果什么都不设置，将使用默认值。
 
 ```java
 Wallet w = Wallet.withAccounts(Account.create())
@@ -36,7 +36,7 @@ Wallet w = Wallet.withAccounts(Account.create())
 
 > **注意：** 如果您想提取钱包实例，例如作为数据传输对象（DTO），请确保创建`NEP6Wallet`实例并使用该实例。为此，您需要先加密钱包，然后调用`toNEP6Wallet`。这将自动为钱包中的所有账户初始化`NEP6Account`实例。
 
-### [账户](https://neow3j.io/#/neo-n3/dapp_development/wallets_and_accounts?id=accounts)
+### 账户
 
 neow3j中的账户可以在有或没有EC密钥材料的情况下创建。如果账户的私钥可用，该账户可用于签名任意数据，包括交易或其他原始数据。
 
@@ -65,7 +65,7 @@ Account a = Account.fromWIF("L3kCZj6QbFPwbsVhxnB8nUERDy4mhCSrWJew4u5Qh5QmGMfnCTd
 
 > **注意：** 当您想要提取单个账户实例，例如作为数据传输对象（DTO）时，请确保创建`NEP6Account`实例并使用该实例。为此，您需要先加密账户，然后调用`toNEP6Account`。当从钱包实例创建`NEP6Wallet`时，会为每个账户自动执行此转换。
 
-### [多重签名账户](https://neow3j.io/#/neo-n3/dapp_development/wallets_and_accounts?id=multi-sig-accounts)
+### 多重签名账户
 
 多重签名账户可以使用以下方法创建：
 
@@ -93,7 +93,7 @@ Account a2 = Account.createMultiSigAccount(publicKeys, 2)
         .label("MyMultiSigAccount");Copy to clipboardErrorCopied
 ```
 
-### [账户余额](https://neow3j.io/#/neo-n3/dapp_development/wallets_and_accounts?id=account-balances)
+### 账户余额
 
 要检查账户的NEP-17余额，请使用以下方法。
 

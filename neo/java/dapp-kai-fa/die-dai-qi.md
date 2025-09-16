@@ -1,3 +1,20 @@
+---
+layout:
+  width: default
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: false
+  outline:
+    visible: true
+  pagination:
+    visible: true
+  metadata:
+    visible: true
+---
+
 # 迭代器
 
 **简要说明**：您可以使用`SmartContract.callFunctionReturningIterator(...)`来调用返回迭代器的方法，并使用结果`Iterator`对象及其实用方法遍历迭代器。

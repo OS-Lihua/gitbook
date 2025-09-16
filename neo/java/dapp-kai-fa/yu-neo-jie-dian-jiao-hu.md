@@ -1,6 +1,6 @@
 # 与Neo节点交互
 
-### [设置连接](https://neow3j.io/#/neo-n3/dapp_development/interacting_with_a_node?id=setting-up-a-connection)
+### 设置连接
 
 由于Neow3j不是Neo节点实现，与外部节点交互对于任何涉及从区块链读取或写入的操作都至关重要。与Neo节点交互的主要组件是 `io.neow3j.protocol.Neow3j` 类。该类为Neo节点支持的所有JSON-RPC方法提供了Java等价物。
 
@@ -42,7 +42,7 @@ Neow3j neow3j = Neow3j.build(new HttpService("http://localhost:40332"),
 
 `Neow3j` 上可用的另一组方法基于[RxJava](https://github.com/ReactiveX/RxJava)并返回您可以订阅的 `Observable` 。这些方法将在下一节中简要探讨，该节涵盖区块链监控。这种方法使您能够使用neow3j异步观察和响应来自Neo区块链的事件和数据。
 
-### [Monitoring the Blockchain](https://neow3j.io/#/neo-n3/dapp_development/interacting_with_a_node?id=monitoring-the-blockchain)
+### Monitoring the Blockchain
 
 区块链应用程序中的一个常见用例涉及跟踪新区块及其内容。`Neow3j` 提供了几种追赶和订阅新区块的方法。从Neo节点检索的任何区块都将转发给您的订阅者。以下示例演示了从区块索引100开始获取所有区块并订阅新生成的区块。布尔参数控制您是否希望接收每个区块的完整交易数据。
 
@@ -68,7 +68,7 @@ neow3j.subscribeToNewBlocksObservable(true)
         });Copy to clipboardErrorCopied
 ```
 
-### [检查交易](https://neow3j.io/#/neo-n3/dapp_development/interacting_with_a_node?id=inspecting-a-transaction)
+### 检查交易
 
 您可以从前面部分的区块订阅中检索交易信息，但您也可以通过获取单个交易的信息来更加具体。例如，如果您向节点发送了一笔交易，现在想检查它在区块链上的状态。
 
@@ -114,7 +114,7 @@ List<NeoApplicationLog.Execution.Notification> notifications = execution.getNoti
 
 除了返回值外，您还可以检查由交易触发的通知。应用程序日志中的通知提供了跟踪智能合约活动的方法。目前，没有直接监控智能合约的直接方法。相反，您需要订阅新区块、检查交易应用程序日志，并通过将合约哈希与 `notification.getContract()` 进行比较来检查合约触发的通知。
 
-### [在节点上使用钱包](https://neow3j.io/#/neo-n3/dapp_development/interacting_with_a_node?id=using-a-wallet-on-the-node)
+### 在节点上使用钱包
 
 如果您运行自己的Neo全节点，可以利用直接存储在该节点上的钱包。Neow3j提供了与这些钱包交互和使用的必要方法。
 
@@ -162,7 +162,7 @@ if (response.hasError()) {
 }Copy to clipboardErrorCopied
 ```
 
-### [Neo-Express](https://neow3j.io/#/neo-n3/dapp_development/interacting_with_a_node?id=neo-express)
+### Neo-Express
 
 `io.neow3j.protocol.Neow3jExpress` 类扩展了`Neow3j` 的方法，并添加了特定于neo-express的方法。[Neo-express](https://github.com/neo-project/neo-express)是一个开发者工具，促进了简化的工作流程，提供了用于管理和配置私有网络的开发工具。
 
