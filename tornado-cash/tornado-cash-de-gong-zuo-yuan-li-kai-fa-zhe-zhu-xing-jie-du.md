@@ -1,10 +1,8 @@
 ---
-description: '原作者: RareSkill  翻译: YaCo & AI'
+description: '作者: RareSkill  翻译: YaCo & AI'
 ---
 
 # Tornado Cash 的工作原理（开发者逐行解读）
-
-
 
 <figure><img src="https://rareskills.io/wp-content/uploads/2024/09/935a00_8fb7ab406b7c430dafcdff2f004b56c7~mv2.png" alt=""><figcaption></figcaption></figure>
 
@@ -16,7 +14,7 @@ Tornado Cash 可能是最具标志性的零知识智能合约应用，因此我�
 
 假设读者了解梅克尔树（Merkle Trees）的工作原理，并且反向计算加密哈希是不可行的。读者也应至少具备中级的 Solidity 编程水平（因为我们将阅读源代码片段）。
 
-Tornado Cash 是一个相当复杂的智能合约，因此如果您对该语言还不熟悉，请先查看我们的 [Solidity 教程](https://rareskills.io/learn-solidity)。
+Tornado Cash 是一个相当复杂的智能合约，因此如果您对该语言还不熟悉，请先查看 RareSkill 的 [Solidity 教程](https://rareskills.io/learn-solidity)。
 
 ### 关于 Tornado Cash 的快速警告
 

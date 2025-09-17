@@ -42,9 +42,9 @@ Neow3j neow3j = Neow3j.build(new HttpService("http://localhost:40332"),
 
 `Neow3j` 上可用的另一组方法基于[RxJava](https://github.com/ReactiveX/RxJava)并返回您可以订阅的 `Observable` 。这些方法将在下一节中简要探讨，该节涵盖区块链监控。这种方法使您能够使用neow3j异步观察和响应来自Neo区块链的事件和数据。
 
-### Monitoring the Blockchain
+### 监听区块链
 
-区块链应用程序中的一个常见用例涉及跟踪新区块及其内容。`Neow3j` 提供了几种追赶和订阅新区块的方法。从Neo节点检索的任何区块都将转发给您的订阅者。以下示例演示了从区块索引100开始获取所有区块并订阅新生成的区块。布尔参数控制您是否希望接收每个区块的完整交易数据。
+区块链应用程序中的一个常见用例涉及跟踪新区块及其内容。`Neow3j` 提供了几种监听和订阅新区块的方法。从Neo节点检索的任何区块都将转发给您的订阅者。以下示例演示了从区块索引100开始获取所有区块并订阅新生成的区块。布尔参数控制您是否希望接收每个区块的完整交易数据。
 
 ```java
 neow3j.catchUpToLatestAndSubscribeToNewBlocksObservable(new BigInteger("100"), true)
