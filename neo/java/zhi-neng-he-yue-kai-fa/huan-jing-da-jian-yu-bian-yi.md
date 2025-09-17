@@ -4,7 +4,7 @@
 
 使用[样板项目](https://github.com/neow3j/neow3j-boilerplate)仓库来进行基本项目设置，您可以在此基础上构建您的合约。您可以将其用作模板来创建您自己的项目仓库。
 
-<figure><img src="../../../.gitbook/assets/20230330_neow3j-boilerplate-1-clone-from-template.gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/1.gif" alt=""><figcaption></figcaption></figure>
 
 如果您想在本地开发，请跳过下一部分，然后继续[这里](https://neow3j.io/#/neo-n3/smart_contract_development/setup_and_compilation?id=the-build-file)。
 
