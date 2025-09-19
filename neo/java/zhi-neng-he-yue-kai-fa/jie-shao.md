@@ -1,10 +1,10 @@
-# 智能合约开发
+# 介绍
 
 Neo区块链与其他区块链的不同之处在于，它允许您使用多种知名编程语言（如C#、Go和JavaScript）来实现智能合约。Neow3j为此做出了贡献，并添加了对Java作为智能合约语言的支持。Neow3j中与智能合约开发相关的部分被称为**Neow3j开发包(devpack)**。它由三个模块组成。
 
-* `io.neow3j:devpack`是您的智能合约项目将依赖的模块。它是一个Java库，包含合约开发所需的Neo特有注解、方法和类。您将在合约中使用它，例如获取当前区块的信息或发送通知。该模块的API在[开发包](https://neow3j.io/#/neo-n3/smart_contract_development/devpack)部分进行了描述。
-* `io.neow3j:compiler`包含从Java类生成NeoVM代码的编译器。您可以通过在Java程序中调用它来以编程方式使用它，但很可能您不需要直接访问它。
-* `io.neow3j:gradle-plugin`实现了一个Gradle插件，您可以将其应用到智能合约项目中，它提供了一个简单的Gradle任务来进行合约编译
+* `io.neow3j:devpack` 是您的智能合约项目将依赖的模块。它是一个Java库，包含合约开发所需的Neo特有注解、方法和类。您将在合约中使用它，例如获取当前区块的信息或发送通知。该模块的API在[开发包](https://neow3j.io/#/neo-n3/smart_contract_development/devpack)部分进行了描述。
+* `io.neow3j:compiler` 包含从Java类生成NeoVM代码的编译器。您可以通过在Java程序中调用它来以编程方式使用它，但很可能您不需要直接访问它。
+* `io.neow3j:gradle-plugin` 实现了一个Gradle插件，您可以将其应用到智能合约项目中，它提供了一个简单的Gradle任务来进行合约编译
 
 ### [面向Neo虚拟机的Java](https://neow3j.io/#/neo-n3/smart_contract_development/introduction?id=java-for-the-neo-virtual-machine)
 

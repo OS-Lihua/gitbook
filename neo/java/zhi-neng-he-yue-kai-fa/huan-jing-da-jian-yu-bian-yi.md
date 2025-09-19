@@ -16,9 +16,9 @@
 
 <figure><img src="../../../.gitbook/assets/2.gif" alt=""><figcaption></figcaption></figure>
 
-一旦VSCode IDE在您的浏览器中显示，您应该能看到`main`和`test`源集。`main`包含一个智能合约类，`test`包含一个测试文件。一旦测试类中显示绿色箭头，IDE就完全加载并准备就绪。
+一旦VSCode IDE在您的浏览器中显示，您应该能看到 `main` 和 `test` 源集。`main` 包含一个智能合约类，`test` 包含一个测试文件。一旦测试类中显示绿色箭头，IDE就完全加载并准备就绪。
 
-> \*\*注意：\*\*还有第三个源集`deploy`，用于生产部署配置。
+> \*\*注意：\*\*还有第三个源集 `deploy`，用于生产部署配置。
 
 <figure><img src="../../../.gitbook/assets/3.gif" alt=""><figcaption></figcaption></figure>
 
@@ -28,9 +28,9 @@
 
 ### 构建文件
 
-Neow3j开发包使用[Gradle](https://gradle.org/)作为其构建工具。因此，智能合约项目的结构遵循Gradle约定。本部分讨论样板项目中发现的`build.gradle`文件的内容。
+Neow3j开发包使用[Gradle](https://gradle.org/)作为其构建工具。因此，智能合约项目的结构遵循Gradle约定。本部分讨论样板项目中发现的 `build.gradle` 文件的内容。
 
-文件中的第一个块应用必要的Gradle插件。Neow3j提供了自己的Gradle插件，允许通过名为`neow3jCompile`的Gradle任务进行合约编译。Java插件也是必需的。
+文件中的第一个块应用必要的Gradle插件。Neow3j提供了自己的Gradle插件，允许通过名为`neow3jCompile` 的Gradle任务进行合约编译。Java插件也是必需的。
 
 ```groovy
 plugins {
@@ -61,7 +61,7 @@ repositories {
 }Copy to clipboardErrorCopied
 ```
 
-接下来建立一个额外的源集。它用于与合约部署相关的代码。这在`main`和`test`之外添加了一个`deploy`源集。
+接下来建立一个额外的源集。它用于与合约部署相关的代码。这在 `main` 和 `test` 之外添加了一个 `deploy` 源集。
 
 ```groovy
 sourceSets {
