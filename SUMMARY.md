@@ -30,8 +30,11 @@
 
 ## AI
 
-* [chain](ai/chain.md)
-* [graph](ai/graph.md)
+* [LangChain](ai/langchain.md)
+* [LangGraph](ai/langgraph.md)
+* [MCP](ai/mcp.md)
+* [A2A](ai/a2a.md)
+* [AP2](ai/ap2.md)
 
 ## 🌪️ Tornado Cash
 
@@ -42,6 +45,7 @@
 * [EIP/ERC](eip-zhi-shu/eip-erc/README.md)
   * [ERC-20](eip-zhi-shu/eip-erc/erc-20.md)
   * [ERC-721](eip-zhi-shu/eip-erc/erc-721.md)
+  * [ERC-777](eip-zhi-shu/eip-erc/erc-777.md)
   * [ERC-1155](eip-zhi-shu/eip-erc/erc-1155.md)
   * [EIP-1559](eip-zhi-shu/eip-erc/eip-1559.md)
   * [ERC-1822](eip-zhi-shu/eip-erc/erc-1822.md)

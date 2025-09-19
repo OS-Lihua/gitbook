@@ -1,5 +1,5 @@
 ---
-description: '作者: RareSkill  翻译: YaCo & AI'
+description: '作者: RareSkill                      翻译: YaCo & AI'
 ---
 
 # Tornado Cash 的工作原理（开发者逐行解读）
