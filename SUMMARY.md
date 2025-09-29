@@ -55,6 +55,7 @@
   * [EIP-1667](eip-zhi-shu/eip-erc/eip-1667.md)
   * [ERC-1822](eip-zhi-shu/eip-erc/erc-1822-1.md)
   * [ERC-7201](eip-zhi-shu/eip-erc/erc-7201.md)
+  * [ERC-8004](eip-zhi-shu/eip-erc/erc-8004.md)
 
 ## PolyMarket
 
