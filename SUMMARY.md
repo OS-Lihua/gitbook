@@ -45,6 +45,7 @@
 * [EIP/ERC](eip-zhi-shu/eip-erc/README.md)
   * [ERC-20](eip-zhi-shu/eip-erc/erc-20.md)
   * [ERC-721](eip-zhi-shu/eip-erc/erc-721.md)
+  * [ERC-712](eip-zhi-shu/eip-erc/erc-712.md)
   * [ERC-777](eip-zhi-shu/eip-erc/erc-777.md)
   * [ERC-1155](eip-zhi-shu/eip-erc/erc-1155.md)
   * [EIP-1559](eip-zhi-shu/eip-erc/eip-1559.md)
