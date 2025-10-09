@@ -1,8 +1,10 @@
 # Table of contents
 
-## Compound
+## PolyMarket
 
-* [Compound](README.md)
+* [Polymarket 原理](README.md)
+* [Polymarket 源码](polymarket/polymarket-yuan-ma.md)
+* [PolyMarket API](polymarket/polymarket-api.md)
 
 ## 🎾 Neo
 
@@ -28,13 +30,24 @@
     * [迭代器](neo/java/dapp-kai-fa/die-dai-qi.md)
 * [C#](neo/c.md)
 
-## AI
+## EVM 合约开发
 
-* [LangChain](ai/langchain.md)
-* [LangGraph](ai/langgraph.md)
-* [MCP](ai/mcp.md)
-* [A2A](ai/a2a.md)
-* [AP2](ai/ap2.md)
+* [智能合约安全](evm-he-yue-kai-fa/zhi-neng-he-yue-an-quan.md)
+* [GAS 优化](evm-he-yue-kai-fa/gas-you-hua.md)
+* [MEV](evm-he-yue-kai-fa/mev/README.md)
+  * [flashbots](evm-he-yue-kai-fa/mev/flashbots.md)
+* [Solidity](evm-he-yue-kai-fa/solidity/README.md)
+  * [Foundry](evm-he-yue-kai-fa/solidity/foundry.md)
+  * [GAS](evm-he-yue-kai-fa/solidity/gas.md)
+* [ether.js](evm-he-yue-kai-fa/ether.js.md)
+* [Defi](evm-he-yue-kai-fa/defi/README.md)
+  * [UniSwap V2](evm-he-yue-kai-fa/defi/uniswap-v2.md)
+  * [Compound](evm-he-yue-kai-fa/defi/compound.md)
+  * [AAVE](evm-he-yue-kai-fa/defi/aave.md)
+* [byte code](evm-he-yue-kai-fa/byte-code.md)
+* [Oracle](evm-he-yue-kai-fa/oracle.md)
+* [Bridge](evm-he-yue-kai-fa/bridge/README.md)
+  * [hyperlane](evm-he-yue-kai-fa/bridge/hyperlane.md)
 
 ## 🌪️ Tornado Cash
 
@@ -58,11 +71,10 @@
   * [ERC-7201](eip-zhi-shu/eip-erc/erc-7201.md)
   * [ERC-8004](eip-zhi-shu/eip-erc/erc-8004.md)
 
-## PolyMarket
+## AI
 
-* [Polymarket 原理](polymarket/polymarket-yuan-li.md)
-* [Polymarket 源码](polymarket/polymarket-yuan-ma.md)
-* [PolyMarket API](polymarket/polymarket-api.md)
-* [用户指南](polymarket/yong-hu-zhi-nan.md)
-* [开发者指南](polymarket/kai-fa-zhe-zhi-nan/README.md)
-  * [Page 2](polymarket/kai-fa-zhe-zhi-nan/page-2.md)
+* [LangChain](ai/langchain.md)
+* [LangGraph](ai/langgraph.md)
+* [MCP](ai/mcp.md)
+* [A2A](ai/a2a.md)
+* [AP2](ai/ap2.md)
